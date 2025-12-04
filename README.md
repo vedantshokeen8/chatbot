@@ -1,6 +1,6 @@
 # HR RAG Chatbox (LangChain + FastAPI)
 
-Production-ready HR assistant for IBM-style policies with Retrieval-Augmented Generation (RAG) using LangChain + ChromaDB + HuggingFace embeddings. Frontend is a lightweight vanilla JS single-page app served by FastAPI.
+Production-ready HR assistant for policies with Retrieval-Augmented Generation (RAG) using LangChain + ChromaDB + HuggingFace embeddings. Frontend is a lightweight vanilla JS single-page app served by FastAPI.
 
 ---
 ## 🔧 Core Components
@@ -196,4 +196,5 @@ Internal demo / educational use.
 ---
 ## ✅ Summary
 FastAPI + LangChain RAG HR assistant with persistent Chroma vector store, aggressive context sanitization, domain-aware fallbacks, and simple vanilla frontend.
+
 
