@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BlueHR Assistant</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/styles.css?v=2"/>
+  </head>
+  <body>
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-card">
+        <div class="top-right-logo">
+          <img src="/static/logo.svg" alt="" />
+        </div>
+        <h1>Welcome to <span class="brand">BlueHR</span></h1>
+        <p class="subtitle">Your AI-powered HR assistant</p>
+        <button id="login-btn" class="btn primary">Press to Login</button>
+        <div class="hint">Tip: Click "Build Knowledge Base" to enhance responses (optional).</div>
+      </div>
+    </div>
+
+    <div id="user-id-screen" class="loading-screen" style="display: none;">
+      <div class="loading-card">
+        <div class="top-right-logo">
+          <img src="/static/logo.svg" alt="" />
+        </div>
+        <h2>Enter Your Employee ID</h2>
+        <p class="subtitle">Please provide your employee ID to personalize your experience</p>
+        <div class="user-id-input">
+          <input type="text" id="user-id-input" placeholder="e.g., EMP001234" maxlength="20" />
+          <button id="continue-btn" class="btn primary">Continue</button>
+        </div>
+        <div class="hint">Your ID will be used to personalize responses and track tickets.</div>
+      </div>
+    </div>
+
+    <div class="app" style="display: none;">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <span class="brand">BlueHR</span>
+          <button id="new-chat" class="btn small">+ New</button>
+        </div>
+
+        <div class="sidebar-actions">
+          <button id="ingest" class="btn secondary">Build Knowledge Base</button>
+          <button id="refresh" class="btn secondary">Refresh</button>
+          <button id="contact-hr" class="btn contact-hr">🎫 Contact HR</button>
+          <div id="system-indicator" class="system-indicator">
+            <span id="system-type">🔍 Detecting...</span>
+          </div>
+        </div>
+
+        <div id="conversations" class="conversations"></div>
+      </aside>
+
+      <main class="chat">
+        <header class="chat-header">
+          <div class="title">HR Chat</div>
+          <div class="status-pill" id="status-pill">Checking...</div>
+        </header>
+
+        <div id="messages" class="messages"></div>
+
+        <footer class="composer">
+          <input id="prompt" type="text" placeholder="Ask about leaves, medical, gratuity, relocation budgets..." />
+          <button id="send" class="btn primary">Send</button>
+        </footer>
+      </main>
+    </div>
+
+    <template id="msg-user">
+      <div class="msg user"><div class="bubble"></div></div>
+    </template>
+    <template id="msg-bot">
+      <div class="msg bot">
+        <div class="bubble"></div>
+        <div class="sources"></div>
+      </div>
+    </template>
+
+    <script src="/static/app.js?v=3"></script>
+  </body>
+</html>

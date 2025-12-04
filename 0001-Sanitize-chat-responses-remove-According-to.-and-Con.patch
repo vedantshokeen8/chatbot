@@ -1,0 +1,105 @@
+From 55856e328c3471d3a734971eea562792c291a3b9 Mon Sep 17 00:00:00 2001
+From: Vedant Shokeen <vedant.shokeen9@gmail.com>
+Date: Thu, 4 Dec 2025 15:20:55 +0530
+Subject: [PATCH] Sanitize chat responses: remove 'According to...' and
+ 'Context:'; normalize confidence messages
+
+---
+ langchain_server_enhanced.py | 66 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 65 insertions(+), 1 deletion(-)
+
+diff --git a/langchain_server_enhanced.py b/langchain_server_enhanced.py
+index e9c136a..fed5363 100644
+--- a/langchain_server_enhanced.py
++++ b/langchain_server_enhanced.py
+@@ -43,7 +43,13 @@ except ImportError as e:
+ APP_NAME = "IBM HR Assistant - LangChain RAG"
+ SERVER_PORT = 8007
+ BASE_DIR = Path(__file__).parent
++# Prefer dataset in data/ but fall back to root file if present
+ DATASET_LOCAL = BASE_DIR / "data" / "qa_dataset_enriched_slim.csv"
++if not DATASET_LOCAL.exists():
++    alt = BASE_DIR / "qa_dataset_enriched_slim.csv"
++    if alt.exists():
++        DATASET_LOCAL = alt
++
+ CHROMA_DIR = BASE_DIR / "storage" / "chroma_langchain"
+ 
+ # Create FastAPI app
+@@ -530,6 +536,58 @@ Your specific budget depends on your level, role, distance, and destination. Con
+ # Global RAG system
+ rag_system = SimpleRAGSystem()
+ 
++
++def sanitize_response(resp: Dict[str, Any]) -> Dict[str, Any]:
++    """Sanitize and normalize a RAG response for safe frontend display.
++
++    - Strip prefixes like 'According to our HR materials:'
++    - Remove any 'Context:' sections and trailing context noise
++    - Remove lines like 'Employee:'
++    - Normalize `confidence_message` to ASCII-only friendly text based on retrieval_method
++    """
++    import re
++
++    if not isinstance(resp, dict):
++        return resp
++
++    # Clean answer text
++    answer = resp.get('answer')
++    if isinstance(answer, str):
++        # Remove 'According to our HR materials:' prefix
++        answer = re.sub(r'^\s*According to our HR materials:\s*', '', answer, flags=re.IGNORECASE)
++
++        # Remove everything after a 'Context:' marker (including the marker)
++        answer = re.split(r'\bContext:\b', answer, flags=re.IGNORECASE)[0]
++
++        # Remove 'Employee:' lines
++        answer = re.sub(r'(^|\n)\s*Employee:.*', '', answer, flags=re.IGNORECASE)
++
++        # Collapse multiple blank lines and trim
++        answer = re.sub(r'\n{2,}', '\n\n', answer).strip()
++
++        resp['answer'] = answer
++
++    # Normalize confidence message to ASCII
++    retrieval = (resp.get('retrieval_method') or '').lower()
++    if 'langchain' in retrieval or 'vector' in retrieval:
++        resp['confidence_message'] = 'High confidence (vector search)'
++    elif 'simple_keyword' in retrieval or 'keyword' in retrieval:
++        resp['confidence_message'] = 'Keyword search'
++    elif 'no_results' in retrieval:
++        resp['confidence_message'] = 'No matching information'
++    elif 'error' in retrieval:
++        resp['confidence_message'] = 'Processing error'
++    else:
++        # Fallback - ensure ASCII only
++        cm = resp.get('confidence_message', '')
++        if isinstance(cm, str):
++            # strip common emoji characters
++            cm = re.sub(r'[\u2600-\u26FF\u2700-\u27BF\u1F300-\u1F6FF\u1F900-\u1F9FF]', '', cm)
++            cm = cm.encode('ascii', errors='ignore').decode('ascii').strip()
++            resp['confidence_message'] = cm or 'Response'
++
++    return resp
++
+ def validate_user(user_id: str) -> dict:
+     """Validate user ID"""
+     user_id = user_id.upper().strip()
+@@ -659,7 +717,13 @@ def api_chat(req: ChatRequest = Body(...)):
+         
+         # Use RAG system to answer
+         result = rag_system.search(req.question, top_k=req.top_k or 5)
+-        
++
++        # Sanitize the result for frontend consumption
++        try:
++            result = sanitize_response(result)
++        except Exception as e:
++            print(f"⚠️ Response sanitization failed: {e}")
++
+         print(f"✅ Response sent (confidence: {result.get('confidence_score', 0):.3f})")
+         return result
+         
+-- 
+2.46.0.windows.1
+

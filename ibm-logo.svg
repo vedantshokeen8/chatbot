@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="24" viewBox="0 0 60 24">
+  <defs>
+    <style>
+      .ibm-text { 
+        fill: #0f62fe; 
+        font-family: 'IBM Plex Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    </style>
+  </defs>
+  <!-- Clean IBM Text Logo -->
+  <text x="30" y="16" text-anchor="middle" class="ibm-text">IBM</text>
+  
+  <!-- Alternative: Striped IBM if you prefer -->
+  <g style="display: none;">
+    <!-- Letter I -->
+    <rect x="0" y="2" width="12" height="2" fill="#0f62fe"/>
+    <rect x="0" y="6" width="12" height="2" fill="#0f62fe"/>
+    <rect x="0" y="10" width="12" height="2" fill="#0f62fe"/>
+    <rect x="0" y="14" width="12" height="2" fill="#0f62fe"/>
+    <rect x="0" y="18" width="12" height="2" fill="#0f62fe"/>
+    
+    <!-- Letter B -->
+    <rect x="16" y="2" width="2" height="18" fill="#0f62fe"/>
+    <rect x="18" y="2" width="8" height="2" fill="#0f62fe"/>
+    <rect x="18" y="6" width="6" height="2" fill="#0f62fe"/>
+    <rect x="18" y="10" width="8" height="2" fill="#0f62fe"/>
+    <rect x="18" y="14" width="6" height="2" fill="#0f62fe"/>
+    <rect x="18" y="18" width="8" height="2" fill="#0f62fe"/>
+    <rect x="24" y="4" width="2" height="2" fill="#0f62fe"/>
+    <rect x="24" y="12" width="2" height="2" fill="#0f62fe"/>
+    <rect x="24" y="16" width="2" height="2" fill="#0f62fe"/>
+    
+    <!-- Letter M -->
+    <rect x="30" y="2" width="2" height="18" fill="#0f62fe"/>
+    <rect x="32" y="2" width="4" height="2" fill="#0f62fe"/>
+    <rect x="34" y="4" width="2" height="2" fill="#0f62fe"/>
+    <rect x="36" y="6" width="2" height="2" fill="#0f62fe"/>
+    <rect x="38" y="4" width="2" height="2" fill="#0f62fe"/>
+    <rect x="40" y="2" width="4" height="2" fill="#0f62fe"/>
+    <rect x="42" y="2" width="2" height="18" fill="#0f62fe"/>
+    <rect x="30" y="10" width="14" height="2" fill="#0f62fe"/>
+    <rect x="30" y="14" width="14" height="2" fill="#0f62fe"/>
+    <rect x="30" y="18" width="14" height="2" fill="#0f62fe"/>
+  </g>
+</svg>

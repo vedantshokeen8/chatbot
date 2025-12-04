@@ -1,0 +1,102 @@
+[
+  {
+    "ticket_id": "HR-20250828213546-12C64D7E",
+    "issue": "whats is my reallocation budget",
+    "user_id": "anonymous",
+    "status": "Open",
+    "created_at": "2025-08-28T21:35:46.964513"
+  },
+  {
+    "ticket_id": "HR-20250829003452-821B3A13",
+    "issue": "how much travel allowance do i have",
+    "user_id": "anonymous",
+    "status": "Open",
+    "created_at": "2025-08-29T00:34:52.919415",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "HR-20250829003941-CFEBC70A",
+    "issue": "how many leaves do i have",
+    "user_id": "anonymous",
+    "status": "Open",
+    "created_at": "2025-08-29T00:39:41.460838",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "HR-20250829100157-155BBD09",
+    "issue": "contact hr",
+    "user_id": "EM223",
+    "status": "Open",
+    "created_at": "2025-08-29T10:01:57.943443",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "HR-20250829143522-48D1AA1B",
+    "issue": "contact hr",
+    "user_id": "BM2218",
+    "status": "Open",
+    "created_at": "2025-08-29T14:35:22.538634",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "HR-20250829143829-6653EA68",
+    "issue": "How do I raise an HR ticket?",
+    "user_id": "BM2218",
+    "status": "Open",
+    "created_at": "2025-08-29T14:38:29.028764",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "RAG-HR-20250829175600-144EC6C7",
+    "issue": "What are my medical benefits?",
+    "user_id": "1234",
+    "status": "Open",
+    "created_at": "2025-08-29T17:56:00.558725",
+    "system_type": "RAG_System",
+    "source": "RAG HR Assistant"
+  },
+  {
+    "ticket_id": "HR-20250829201251-BC09449B",
+    "issue": "General HR inquiry",
+    "user_id": "bm2211",
+    "status": "Open",
+    "created_at": "2025-08-29T20:12:51.630907",
+    "source": "Enhanced HR Assistant"
+  },
+  {
+    "ticket_id": "LANGCHAIN-HR-20250829214000-5862587F",
+    "issue": "contact hr",
+    "user_id": "888",
+    "status": "Open",
+    "created_at": "2025-08-29T21:40:00.779304",
+    "system_type": "LangChain_RAG_System",
+    "source": "LangChain HR Assistant"
+  },
+  {
+    "ticket_id": "LANGCHAIN-HR-20250830155355-94FE9B65",
+    "issue": "contact hr",
+    "user_id": "BM2218",
+    "status": "Open",
+    "created_at": "2025-08-30T15:53:55.668557",
+    "system_type": "LangChain_RAG_System",
+    "source": "LangChain HR Assistant"
+  },
+  {
+    "ticket_id": "LANGCHAIN-HR-20250830155658-288C9110",
+    "issue": "Contact HR for personal help",
+    "user_id": "BM2218",
+    "status": "Open",
+    "created_at": "2025-08-30T15:56:58.560548",
+    "system_type": "LangChain_RAG_System",
+    "source": "LangChain HR Assistant"
+  },
+  {
+    "ticket_id": "LANGCHAIN-HR-20251204144747-00E3B60B",
+    "issue": "Check dataset availability",
+    "user_id": "EMP001234",
+    "status": "Open",
+    "created_at": "2025-12-04T14:47:47.684554",
+    "system_type": "LangChain_RAG_System",
+    "source": "LangChain HR Assistant"
+  }
+]

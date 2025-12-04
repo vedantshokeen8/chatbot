@@ -1,0 +1,24 @@
+⚠️ LangChain dependencies not available: No module named 'langchain.text_splitter'
+📥 Will install them automatically...
+💚 Health check - LangChain status: healthy
+INFO:     127.0.0.1:54121 - "GET /api/health HTTP/1.1" 200 OK
+
+💬 Chat (User: John Doe): 'How many vacation days do I get?'
+📊 Loaded dataset: 6037 entries
+✅ Response sent (confidence: 0.800)
+INFO:     127.0.0.1:54135 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56815 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56815 - "GET /static/logo.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64250 - "GET /static/app.js?v=3 HTTP/1.1" 304 Not Modified
+💚 Health check - LangChain status: healthy
+INFO:     127.0.0.1:64250 - "GET /api/health HTTP/1.1" 200 OK
+💚 Health check - LangChain status: healthy
+INFO:     127.0.0.1:64250 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /static/logo.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /static/styles.css?v=2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50244 - "GET /static/app.js?v=3 HTTP/1.1" 200 OK
+💚 Health check - LangChain status: healthy
+INFO:     127.0.0.1:50244 - "GET /api/health HTTP/1.1" 200 OK
+💚 Health check - LangChain status: healthy
+INFO:     127.0.0.1:50244 - "GET /api/health HTTP/1.1" 200 OK
